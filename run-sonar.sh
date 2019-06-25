@@ -50,7 +50,7 @@ if [ -f 'package.json' ]; then
 fi
 
 if [ -n "${SONAR_OPTS:-}" ]; then
-    sonar-scanner $SONAR_OPTS -X
+    sonar-scanner $SONAR_OPTS
 else
     sonar-scanner
 fi
