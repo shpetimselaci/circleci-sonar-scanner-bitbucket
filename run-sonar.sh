@@ -34,13 +34,6 @@ if [ -n "${CIRCLE_REPOSITORY_URL:-}" ]; then
   SONAR_OPTS="${SONAR_OPTS} -D sonar.links.scm=${CIRCLE_REPOSITORY_URL}"
 fi
 
-if [ -f 'package.json' ]; then
-  NAME=$(cat package.json | grep \"name\": | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
-  NAME="${NAME/@/}"
-  NAME="${NAME/\//_}"
-  SONAR_OPTS="${SONAR_OPTS} -D sonar.projectKey=${NAME}"
-fi
-
 if [ -n "${SONAR_OPTS:-}" ]; then
   sonar-scanner $SONAR_OPTS
 else
