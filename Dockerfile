@@ -9,7 +9,6 @@ RUN apt-get remove -y wget && apt-get purge
 RUN apt-get install unzip
 RUN unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
 RUN wget http://nodejs.org/dist/v10.6.0/node-v10.6.0.tar.gz     
-RUN apt install nodejs
 RUN cd node-v0.6.18
 RUN ./configure
 RUN make
