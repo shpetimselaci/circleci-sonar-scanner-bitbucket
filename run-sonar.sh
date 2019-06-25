@@ -27,19 +27,11 @@ if [ -n "${CIRCLE_SHA1:-}" ]; then
 fi
 
 if [ -n "${CIRCLE_PR_NUMBER:-}" ]; then
-  SONAR_OPTS="${SONAR_OPTS} -D sonar.analysis.mode=preview -D sonar.github.pullRequest=${CIRCLE_PR_NUMBER}"
-
-  if [ -n "${GITHUB_TOKEN:-}" ]; then
-    SONAR_OPTS="${SONAR_OPTS} -D sonar.github.oauth=${GITHUB_TOKEN}"
-  fi
+  SONAR_OPTS="${SONAR_OPTS} -D sonar.analysis.mode=preview -D sonar.pullrequest.key=${CIRCLE_PR_NUMBER}"
 fi
 
 if [ -n "${CIRCLE_REPOSITORY_URL:-}" ]; then
   SONAR_OPTS="${SONAR_OPTS} -D sonar.links.scm=${CIRCLE_REPOSITORY_URL}"
-fi
-
-if [ -n "${CIRCLE_PROJECT_USERNAME:-}" ] && [ -n "${CIRCLE_PROJECT_REPONAME:-}" ]; then
-  SONAR_OPTS="${SONAR_OPTS} -D sonar.github.repository=${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}"
 fi
 
 if [ -f 'package.json' ]; then
