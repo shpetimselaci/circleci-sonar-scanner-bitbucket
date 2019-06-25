@@ -35,7 +35,7 @@ if [ -n "${CIRCLE_REPOSITORY_URL:-}" ]; then
 fi
 
 if [ -n "${SONAR_OPTS:-}" ]; then
-    sonar-scanner $SONAR_OPTS
+    sonar-scanner "${$SONAR_OPTS} -X"
 else
     sonar-scanner
 fi
