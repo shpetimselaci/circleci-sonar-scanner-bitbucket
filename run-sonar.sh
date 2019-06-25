@@ -10,15 +10,15 @@ if [ -n "${SONAR_HOST:-}" ]; then
     SONAR_OPTS="${SONAR_OPTS} -D sonar.host.url=${SONAR_HOST}"
 fi
 
-if [ -n "${SONAR_PROJECT_KEY:-}" ] then
+if [ -n "${SONAR_PROJECT_KEY:-}" ]; then
     SONAR_OPTS="${SONAR_OPTS} -d sonar.projectKey=${SONAR_PROJECT_KEY}"
 fi
 
-if [ -n "${SONAR_SOURCES:-}" ] then
+if [ -n "${SONAR_SOURCES:-}" ]; then
     SONAR_OPTS="${SONAR_OPTS} -d sonar.sources=${SONAR_SOURCES}"
 fi
 
-if [ -n "${SONAR_ORGANIZATION:-}" ] then
+if [ -n "${SONAR_ORGANIZATION:-}" ]; then
     SONAR_OPTS="${SONAR_OPTS} -d sonar.organization=${SONAR_ORGANIZATION}"
 fi
 
