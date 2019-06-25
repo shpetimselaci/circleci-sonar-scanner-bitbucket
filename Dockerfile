@@ -8,9 +8,12 @@ RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-s
 RUN apt-get remove -y wget && apt-get purge
 RUN apt-get install unzip
 RUN unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
-
-RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-RUN sudo apt install nodejs
+RUN wget http://nodejs.org/dist/v10.6.0/node-v10.6.0.tar.gz     
+RUN apt install nodejs
+RUN cd node-v0.6.18
+RUN ./configure
+RUN make
+RUN make install
 RUN node -v
 RUN ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}-linux/bin/sonar-scanner /usr/bin/sonar-scanner
 RUN chmod +x /usr/bin/sonar-scanner
