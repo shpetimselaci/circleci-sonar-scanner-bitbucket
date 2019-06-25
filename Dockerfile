@@ -1,7 +1,4 @@
 FROM openjdk:8-jre-slim
-FROM node:12.4.0-alpine
-
-RUN node -v
 
 ENV SONAR_SCANNER_VERSION 3.3.0.1492
 ENV SONAR_OPTS ''
@@ -12,6 +9,9 @@ RUN apt-get remove -y wget && apt-get purge
 RUN apt-get install unzip
 RUN unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
 
+RUN curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+RUN sudo apt install nodejs
+RUN node -v
 RUN ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}-linux/bin/sonar-scanner /usr/bin/sonar-scanner
 RUN chmod +x /usr/bin/sonar-scanner
 
