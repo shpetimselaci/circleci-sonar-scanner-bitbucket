@@ -1,5 +1,5 @@
 FROM openjdk:8-jre-slim
-FROM 12.4.0-alpine
+FROM node:12.4.0-alpine
 
 ENV SONAR_SCANNER_VERSION 3.3.0.1492
 ENV SONAR_OPTS ''
