@@ -1,6 +1,8 @@
 FROM openjdk:8-jre-slim
 FROM node:12.4.0-alpine
 
+RUN node -v
+
 ENV SONAR_SCANNER_VERSION 3.3.0.1492
 ENV SONAR_OPTS ''
 
@@ -12,7 +14,6 @@ RUN unzip sonar-scanner-cli-${SONAR_SCANNER_VERSION}-linux.zip
 
 RUN ln -s /sonar-scanner-${SONAR_SCANNER_VERSION}-linux/bin/sonar-scanner /usr/bin/sonar-scanner
 RUN chmod +x /usr/bin/sonar-scanner
-RUN node -v
 
 VOLUME /project
 WORKDIR /project
