@@ -16,4 +16,4 @@ VOLUME /project
 WORKDIR /project
 
 ADD run-sonar.sh /usr/bin/run-sonar
-CMD run-sonar
+RUN chmod +x /usr/bin/run-scanner
