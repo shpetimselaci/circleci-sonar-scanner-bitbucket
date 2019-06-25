@@ -46,6 +46,10 @@ if [ -n "${SONAR_LANGUAGE:-}" ]; then
     SONAR_OPTS="${SONAR_OPTS} -D sonar.language=${SONAR_LANGUAGE}"
 fi
 
+if [ -n "${SONAR_EXCLUSIONS:-}" ]; then
+    SONAR_OPTS="${SONAR_OPTS} -D sonar.exclusions=${SONAR_EXCLUSIONS}"
+fi
+
 if [ -f 'package.json' ]; then
     NAME=$(cat package.json | grep \"name\": | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]')
     NAME="${NAME/@/}"
