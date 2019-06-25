@@ -16,3 +16,4 @@ VOLUME /project
 WORKDIR /project
 
 ADD run-sonar.sh /usr/bin/run-sonar
+CMD run-sonar
