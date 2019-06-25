@@ -11,15 +11,15 @@ if [ -n "${SONAR_HOST:-}" ]; then
 fi
 
 if [ -n "${SONAR_PROJECT_KEY:-}" ]; then
-    SONAR_OPTS="${SONAR_OPTS} -d sonar.projectKey=${SONAR_PROJECT_KEY}"
+    SONAR_OPTS="${SONAR_OPTS} -D sonar.projectKey=${SONAR_PROJECT_KEY}"
 fi
 
 if [ -n "${SONAR_SOURCES:-}" ]; then
-    SONAR_OPTS="${SONAR_OPTS} -d sonar.sources=${SONAR_SOURCES}"
+    SONAR_OPTS="${SONAR_OPTS} -D sonar.sources=${SONAR_SOURCES}"
 fi
 
 if [ -n "${SONAR_ORGANIZATION:-}" ]; then
-    SONAR_OPTS="${SONAR_OPTS} -d sonar.organization=${SONAR_ORGANIZATION}"
+    SONAR_OPTS="${SONAR_OPTS} -D sonar.organization=${SONAR_ORGANIZATION}"
 fi
 
 if [ -n "${CIRCLE_SHA1:-}" ]; then
