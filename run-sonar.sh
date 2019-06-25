@@ -34,8 +34,12 @@ if [ -n "${CIRCLE_PR_NUMBER:-}" ]; then
     SONAR_OPTS="${SONAR_OPTS} -D sonar.analysis.mode=preview -D sonar.pullrequest.key=${CIRCLE_PR_NUMBER}"
 fi
 
-if [ -n "${CIRCLE_REPOSITORY_URL:-}" ]; then
-    SONAR_OPTS="${SONAR_OPTS} -D sonar.links.scm=${CIRCLE_REPOSITORY_URL}"
+if [ -n "${SONAR_SOURCE_ENCODING:-}" ]; then
+    SONAR_OPTS="${SONAR_OPTS} -D sonar.sourceEncoding=${SONAR_SOURCE_ENCODING}"
+fi
+
+if [ -n "${SONAR_JAVASCRIPT_FILE_SUFFIXES:-}" ]; then
+    SONAR_OPTS="${SONAR_OPTS} -D sonar.javascript.file.suffixes=${SONAR_JAVASCRIPT_FILE_SUFFIXES}"
 fi
 
 if [ -f 'package.json' ]; then
